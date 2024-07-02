@@ -1,0 +1,78 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "gpuType": "T4",
+      "authorship_tag": "ABX9TyMrtnb6I/kOpsQ4n0xL67hG",
+      "include_colab_link": False
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    },
+    "accelerator": "GPU"
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source":
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "qMbQ-URbzB0g"
+      },
+      "outputs": [],
+      "source": [
+        "!git clone https://github.com/Arnooth/facefusion.git\n",
+        "%cd /content/facefusion\n",
+        "!pip install -r requirements.txt\n",
+        "!pip install onnxruntime-gpu"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Path to the core.py file\n",
+        "file_path = '/content/facefusion/facefusion/uis/layouts/default.py'\n",
+        "\n",
+        "# Read the content of the file\n",
+        "with open(file_path, 'r') as file:\n",
+        "    content = file.read()\n",
+        "\n",
+        "# Replace the line with the updated version\n",
+        "updated_content = content.replace(\"ui.launch(show_api = False)\", \"ui.launch(show_api = False, share=True, enable_queue=True)\")\n",
+        "\n",
+        "# Write the updated content back to the file\n",
+        "with open(file_path, 'w') as file:\n",
+        "    file.write(updated_content)\n"
+      ],
+      "metadata": {
+        "id": "I6psOK4dAJrJ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!python run.py"
+      ],
+      "metadata": {
+        "id": "nBJZm44Tzkxr"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
